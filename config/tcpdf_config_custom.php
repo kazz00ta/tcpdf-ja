@@ -171,8 +171,6 @@
 	 * IMPORTANT: For security reason, disable this feature if you are printing user HTML content.
 	 */
 	defined('K_TCPDF_CALLS_IN_HTML') or define('K_TCPDF_CALLS_IN_HTML', true);
-}
-
 //============================================================+
 // END OF FILE
 //============================================================+
