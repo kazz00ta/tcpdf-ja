@@ -1,27 +1,5 @@
 <?php
-  // DOCUMENT_ROOT fix for IIS Webserver
-  if ((!isset($_SERVER['DOCUMENT_ROOT'])) OR (empty($_SERVER['DOCUMENT_ROOT']))) {
-    if(isset($_SERVER['SCRIPT_FILENAME'])) {
-      $_SERVER['DOCUMENT_ROOT'] = str_replace( '\\', '/', substr($_SERVER['SCRIPT_FILENAME'], 0, 0-strlen($_SERVER['PHP_SELF'])));
-    } elseif(isset($_SERVER['PATH_TRANSLATED'])) {
-      $_SERVER['DOCUMENT_ROOT'] = str_replace( '\\', '/', substr(str_replace('\\\\', '\\', $_SERVER['PATH_TRANSLATED']), 0, 0-strlen($_SERVER['PHP_SELF'])));
-    } else {
-      // define here your DOCUMENT_ROOT path if the previous fails (e.g. '/var/www')
-      $_SERVER['DOCUMENT_ROOT'] = '/';
-    }
-  }
-
-  // Automatic calculation for the following K_PATH_MAIN constant
-  $k_path_main = str_replace( '\\', '/', realpath(substr(dirname(__FILE__), 0, 0-strlen('config'))));
-  if (substr($k_path_main, -1) != '/') {
-    $k_path_main .= '/';
-  }
-
-  /**
-   * Installation path (/var/www/tcpdf/).
-   * By default it is automatically calculated but you can also set it as a fixed string to improve performances.
-   */
-  defined('K_PATH_MAIN') or define ('K_PATH_MAIN', $k_path_main);
+  defined('K_PATH_MAIN') or define('K_PATH_MAIN', dirname(dirname(__FILE__)) . '/');
 
   // Automatic calculation for the following K_PATH_URL constant
   $k_path_url = $k_path_main; // default value for console mode
