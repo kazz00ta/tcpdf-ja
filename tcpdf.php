@@ -145,8 +145,8 @@
 // Main configuration file. Define the K_TCPDF_EXTERNAL_CONFIG constant to skip this file.
 
 // add line
-defined('TCPDF_PATH_CONFIG_FILE') ? define('TCPDF_PATH_CONFIG_FILE', dirname(__FILE__) . DIRCTORY_SEPARATOR . 'config' . DIRCTORY_SEPARATOR . 'tcpdf_path_config.php');
-defined('TCPDF_CONFIG_FILE') ? define('TCPDF_CONFIG_FILE', dirname(__FILE__) . DIRCTORY_SEPARATOR . 'config' . DIRCTORY_SEPARATOR . 'tcpdf_config.php');
+defined('TCPDF_PATH_CONFIG_FILE') or define('TCPDF_PATH_CONFIG_FILE', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'tcpdf_path_config.php');
+defined('TCPDF_CONFIG_FILE') or define('TCPDF_CONFIG_FILE', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'tcpdf_config.php');
 require_once(TCPDF_PATH_CONFIG_FILE);
 require_once(TCPDF_CONFIG_FILE);
 
